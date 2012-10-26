@@ -8,7 +8,7 @@
 // @name           FetLife Alleged Abusers Database Engine (FAADE)
 // @version        0.1
 // @namespace      com.maybemaimed.fetlife.faade
-// @updateURL      https://userscripts.org/scripts/source/TK.user.js
+// @updateURL      https://userscripts.org/scripts/source/151016.user.js
 // @description    Alerts you of people people who have allegedly assaulted others as you browse FetLife. Empowers you to anonymously report a consent violation perpetrated by a FetLife user.
 // @include        https://fetlife.com/*
 // @exclude        https://fetlife.com/adgear/*

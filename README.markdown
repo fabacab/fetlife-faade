@@ -22,13 +22,13 @@ Sorry, FAADE is currently [incompatible with other Web browsers](https://github.
 
 ## Installing
 
-To install the FetLife Alleged Abusers Database Engine, go to [http://maybemaimed.com/playground/fetlife-alleged-abusers-database-engine/](http://maybemaimed.com/playground/fetlife-alleged-abusers-database-engine/) and click the "[Download and install](https://userscripts.org/scripts/source/TK.user.js)" near the middle of the page:
+To install the FetLife Alleged Abusers Database Engine, go to [http://maybemaimed.com/playground/fetlife-alleged-abusers-database-engine/](http://maybemaimed.com/playground/fetlife-alleged-abusers-database-engine/) and click the "[Download and install](https://userscripts.org/scripts/source/151016.user.js)" near the middle of the page:
 
-> [Download and install FetLife Alleged Abusers Database Engine](https://userscripts.org/scripts/source/TK.user.js)
+> [Download and install FetLife Alleged Abusers Database Engine](https://userscripts.org/scripts/source/151016.user.js)
 
 If you enjoy this script, please consider tossing a few metaphorical coins in [my cyberbusking hat](http://maybemaimed.com/cyberbusking/). :) Your donations are sincerely appreciated! Can't afford to part with any coin? It's cool. [Tweet your appreciation, instead](https://twitter.com/intent/tweet?text=%23FetLife%20Alleged%20Abusers%20Database%20Engine%3A%20http%3A%2F%2Fmaybemaimed.com%2Fplayground%2Ffetlife-alleged-abusers-database-engine%2F%20Please%20help%20us%20transform%20rape%20culture%20into%20%23consent%20culture%21%20SPREAD%20THE%20WORD.).
 
-If [maybemaimed.com is censored](http://maybemaimed.com/where-im-censored/) where you are, you can alternatively go to [the Userscripts.org page for FetLife Alleged Abusers Database Engine](https://userscripts.org/scripts/show/TK) and click on "[Install](http://userscripts.org/scripts/source/TK.user.js)". If the tool is also unavailable there, you can alternatively [download FAADE from GitHub.com](https://github.com/meitar/fetlife-faade/raw/master/fetlife-alleged-abusers.user.js).
+If [maybemaimed.com is censored](http://maybemaimed.com/where-im-censored/) where you are, you can alternatively go to [the Userscripts.org page for FetLife Alleged Abusers Database Engine](https://userscripts.org/scripts/show/151016) and click on "[Install](http://userscripts.org/scripts/source/151016.user.js)". If the tool is also unavailable there, you can alternatively [download FAADE from GitHub.com](https://github.com/meitar/fetlife-faade/raw/master/fetlife-alleged-abusers.user.js).
 
 ## Using
 
