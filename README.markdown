@@ -61,6 +61,7 @@ Before you report a new issue with the FetLife Alleged Abusers Database Engine (
 * [Can I report a consent violation if I don't have a FetLife account?](#can-i-report-a-consent-violation-if-i-dont-have-a-fetlife-account)
 * [Can I remove myself from the database?](#can-i-remove-myself-from-the-database)
 * [What can I do if I've been falsely accused?](#what-can-i-do-if-ive-been-falsely-accused)
+* [Where can I learn more about this issue?](#where-can-i-learn-more-about-this-issue)
 
 ### Can I report a consent violation anonymously?
 
@@ -79,6 +80,17 @@ No. There will never be an option for removing anyone from the database. And no,
 ### What can I do if I've been falsely accused?
 
 You can update your FetLife profile to address the allegation. Be sure to respond to the allegation at the very beginning of your "About me" section so that it is displayed close to the report you believe is false. Each report filed against you is numbered, so if you believe there are multiple false accusations, you can refer to them by number.
+
+### Where can I learn more about this issue?
+
+The following articles are important reads that offer additional background and context for this issue:
+
+* [The privacy information FetLife doesn't want you to read](http://maybemaimed.com/2012/09/26/the-privacy-information-fetlife-doesnt-want-you-to-read/)
+* [FetLife Is Not Safe for Users](http://sexandthe405.com/fetlife-is-not-safe-for-users/)
+* [Fetlife: Not Consent Counts, but Convictions Count, eh?](http://www.consentculture.com/2012/03/fetlife-not-consent-counts-but-convictions-count-eh/)
+* [Let's get practical: Care about Internet privacy because it keeps your loved ones physically safer](http://days.maybemaimed.com/post/30606054306/lets-get-practical-care-about-internet-privacy)
+
+Each of the pages listed above also contain numerous additional links. Take the red pill and see how deep the rabbit hole goes.
 
 ## Change log
 
