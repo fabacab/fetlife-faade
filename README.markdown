@@ -16,9 +16,15 @@ FAADE empowers Internet users like you to anonymously report harassment, rape, a
 
 ## System requirements
 
-To use the FetLife Alleged Abusers Datase Engine, you must be running [Mozilla Firefox](http://getfirefox.com/) (version 12.0 or higher), with the [Greasemonkey extension](https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/) installed (at version 1.0 or higher).
+The following software must be installed on your system before installing the FetLife Alleged Abusers Database Engine user script.
 
-Sorry, FAADE is currently [incompatible with other Web browsers](https://github.com/meitar/fetlife-faade/issues/1). (Please help me fix that!)
+### Mozilla Firefox
+
+If you use the [Mozilla Firefox](http://getfirefox.com/) web browser (version 12.0 or higher), ensure you have the [Greasemonkey extension](https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/) installed (at version 1.0 or higher).
+
+### Google Chrome
+
+If you use the [Google Chrome](https://chrome.google.com/) web browser (version 23 or higher), ensure you have the [Tampermonkey extension](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo) installed.
 
 ## Installing
 
@@ -34,7 +40,7 @@ If [maybemaimed.com is censored](http://maybemaimed.com/where-im-censored/) wher
 
 To use the FetLife Alleged Abusers Database Engine (FAADE), [log in to your FetLife.com account](https://fetlife.com/login) and click the "(report a consent violation by *username*)" link next to the FetLife username of the user who you wish to report for an alleged assault, rape, or other violation of your consent.
 
-When you click a "report a consent violation" link, you will be presented with a form asking you for pertinent informaiton related to the violation you would like to report. Follow the instructions on the form and click "Submit" to complete your report.
+When you click a "report a consent violation" link, you will be presented with a form asking you for pertinent information related to the violation you would like to report. Follow the instructions on the form and click "Submit" to complete your report.
 
 Once you have filed your report, it will be displayed to other FAADE users near the top of the alleged abuser's FetLife profile, as shown in the example below:
 
@@ -94,5 +100,7 @@ Each of the pages listed above also contain numerous additional links. Take the 
 
 ## Change log
 
+* Version 0.1.1:
+** Added support for Google Chrome with the Tampermonkey extension installed.
 * Version 0.1:
 ** Initial release.

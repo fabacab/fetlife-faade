@@ -1,15 +1,15 @@
 /**
  *
- * This is a Greasemonkey script and must be run using Greasemonkey 1.0 or newer.
+ * This is a Greasemonkey script and must be run using a Greasemonkey-compatible browser.
  *
  * @author maymay <bitetheappleback@gmail.com>
  */
 // ==UserScript==
 // @name           FetLife Alleged Abusers Database Engine (FAADE)
-// @version        0.1
+// @version        0.1.1
 // @namespace      com.maybemaimed.fetlife.faade
 // @updateURL      https://userscripts.org/scripts/source/151016.user.js
-// @description    Alerts you of people people who have allegedly assaulted others as you browse FetLife. Empowers you to anonymously report a consent violation perpetrated by a FetLife user.
+// @description    Alerts you of people who have allegedly assaulted others as you browse FetLife. Empowers you to anonymously report a consent violation perpetrated by a FetLife user.
 // @include        https://fetlife.com/*
 // @exclude        https://fetlife.com/adgear/*
 // @exclude        https://fetlife.com/chat/*
@@ -260,3 +260,47 @@ FAADE.createAbuseReportLink = function (id, nick) {
     a.innerHTML = '(report a consent violation by ' + nick + ')';
     return a;
 };
+
+// The following is required for Chrome compatibility, as we need "text/html" parsing.
+/*
+ * DOMParser HTML extension
+ * 2012-09-04
+ *
+ * By Eli Grey, http://eligrey.com
+ * Public domain.
+ * NO WARRANTY EXPRESSED OR IMPLIED. USE AT YOUR OWN RISK.
+ */
+
+/*! @source https://gist.github.com/1129031 */
+/*global document, DOMParser*/
+
+(function(DOMParser) {
+	"use strict";
+
+	var
+	  DOMParser_proto = DOMParser.prototype
+	, real_parseFromString = DOMParser_proto.parseFromString
+	;
+
+	// Firefox/Opera/IE throw errors on unsupported types
+	try {
+		// WebKit returns null on unsupported types
+		if ((new DOMParser).parseFromString("", "text/html")) {
+			// text/html parsing is natively supported
+			return;
+		}
+	} catch (ex) {}
+
+	DOMParser_proto.parseFromString = function(markup, type) {
+		if (/^\s*text\/html\s*(?:;|$)/i.test(type)) {
+			var
+			  doc = document.implementation.createHTMLDocument("")
+			;
+
+			doc.body.innerHTML = markup;
+			return doc;
+		} else {
+			return real_parseFromString.apply(this, arguments);
+		}
+	};
+}(DOMParser));
