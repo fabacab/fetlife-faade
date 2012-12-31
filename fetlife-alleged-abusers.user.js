@@ -71,6 +71,15 @@ GM_addStyle('\
     padding-top: 1em;\
     text-align: center;\
 }\
+#faade_abuse_reports tr:target > * {\
+    border: 1px solid red;\
+}\
+#faade_abuse_reports tr:target th {\
+    border-width: 1px 0 1px 1px;\
+}\
+#faade_abuse_reports tr:target td {\
+    border-width: 1px 1px 1px 0;\
+}\
 /* General prettiness. */\
 #profile #main_content a + a.faade_report_link { padding-left: 5px; }\
 footer .faade_report_link,\
@@ -216,6 +225,7 @@ FAADE.broadcastNewProximalReports = function (doc) {
             msg += "\n\n(Don't worry, I'm not looking for where you actually are. Your location was determined from your FetLife profile.)";
             if (unsafeWindow.confirm(msg)) {
                 for (var i = 0; i < reports_to_alert.length; i++) {
+                    // TODO: Add the permalink to the specific report to this URL, so it's highlighted when opened.
                     var url = 'https://fetlife.com/users/';
                     GM_openInTab(url + reports_to_alert[i].childNodes[2].textContent.match(/\d+/)[0]);
                 }
@@ -286,6 +296,7 @@ FAADE.main = function () {
             for (var iy = 0; iy < abuse_reports.length; iy++) {
                 var num = iy + 1;
                 var tr = document.createElement('tr');
+                tr.setAttribute('id', 'faade_abuse_report-' + num.toString());
                 details_html = '<ul><li class="faade_abuse_report_datetime">' + abuse_reports[iy].childNodes[7].innerHTML + '</li>';
                 details_html += '<li class="faade_abuse_report_location">' + abuse_reports[iy].childNodes[6].innerHTML + '</li></ul>';
                 tr.innerHTML += '<th>Abuse report ' + num.toString() + ' (<span class="faade_abuse_reported_datetime">' +  abuse_reports[iy].childNodes[1].innerHTML + '</span>):' + details_html + '</th>';
