@@ -6,7 +6,7 @@
  */
 // ==UserScript==
 // @name           FetLife Alleged Abusers Database Engine (FAADE)
-// @version        0.1.1
+// @version        0.2
 // @namespace      com.maybemaimed.fetlife.faade
 // @updateURL      https://userscripts.org/scripts/source/151016.user.js
 // @description    Alerts you of people who have allegedly assaulted others as you browse FetLife. Empowers you to anonymously report a consent violation perpetrated by a FetLife user.
@@ -21,7 +21,25 @@
 // @grant          GM_getValue
 // @grant          GM_setValue
 // @grant          GM_deleteValue
+// @grant          GM_openInTab
 // ==/UserScript==
+FL_ASL = {};
+FL_ASL.users = {};
+FL_ASL.getUserProfile = function (id) {
+    if (FL_ASL.users[id]) {
+        return FL_ASL.users[id].profile_html;
+    } else {
+        FL_ASL.users[id] = {};
+        GM_xmlhttpRequest({
+            'method': 'GET',
+            'url': 'https://fetlife.com/users/' + id.toString(),
+            'onload': function (response) {
+                FL_ASL.users[id].profile_html = response.responseText;
+            }
+        });
+    }
+};
+
 FAADE = {};
 FAADE.CONFIG = {
     'debug': false, // switch to true to debug.
@@ -69,6 +87,7 @@ ul.pictures li a.faade_report_link,\
 #profile ul.friends li { width: auto; }\
 ');
 FAADE.init = function () {
+    FL_ASL.getUserProfile(uw.FetLife.currentUser.id); // run early
     FAADE.abuser_database = FAADE.getValue('abuser_database', false);
     if (FAADE.abuserDatabaseExpired()) {
         FAADE.fetchAbuserDatabase();
@@ -140,6 +159,74 @@ FAADE.fetchAbuserDatabase = function () {
     });
 };
 
+FAADE.getLocationFromProfileHtml = function (html) {
+    var parser = new DOMParser();
+    var doc = parser.parseFromString(html, 'text/html');
+    return doc.querySelector('h2.bottom + p > em').textContent.split(', '); // split with comma AND space
+};
+
+FAADE.broadcastNewProximalReports = function (doc) {
+    // Recall timestamp of last record checked.
+    var last_timestamp_checked = parseInt(FAADE.getValue('last_timestamp_checked', '0')); // default is "never!"
+    // Get latest timestamp in stored alleged abuser database.
+    var rows = doc.querySelectorAll('#tblMain tr'); // read in every report, in full
+    var latest_timestamp_filed = Date.parse(rows[rows.length - 1].childNodes[1].textContent);
+
+    // If never checked, or if there are new records since last timestamp checked
+    if (last_timestamp_checked < latest_timestamp_filed) {
+        FAADE.log('Last timestamp checked (' + last_timestamp_checked.toString() + ') is older than latest timestamp filed (' + latest_timestamp_filed.toString() + ').');
+
+        // count how many new records there are since last check
+        var num_reports = 0;
+        for (var i = rows.length - 1; i > 0; i--) {
+            if (Date.parse(rows[i].childNodes[1].textContent) > last_timestamp_checked) {
+                num_reports++;
+            } else {
+                break; // we've reached the timestamps we've already checked, we're done
+            }
+        }
+        FAADE.log('Total of ' + num_reports + ' new reports since last check.');
+
+        var user_loc = FAADE.getLocationFromProfileHtml(FL_ASL.users[uw.FetLife.currentUser.id].profile_html);
+        FAADE.log('Current user location seems to be ' + user_loc.join(', ') + '.');
+
+        // Loop over all new records one by one
+        var reports_to_alert = [];
+        for (var i = rows.length - num_reports; i <= rows.length - 1; i++) {
+            // extract the location data from the report
+            report_loc = rows[i].childNodes[6].textContent;
+            // compare current user's FetLife profile location against alleged abuse location
+            // and test each substring of the user profile against the reported location
+            for (var z = 0; z < user_loc.length; z++) {
+                // if a relevant case insensitive substring matches
+                if (-1 !== report_loc.toLowerCase().search(user_loc[z].toLowerCase())) {
+                    FAADE.log('Filed report location ' + report_loc + ' matches user location substring ' + user_loc[z] + '!');
+                    // store for future pop-up
+                    reports_to_alert.push(rows[i]);
+                    break; // we found a match, so stop trying on this row
+                }
+            }
+        }
+
+        // Ask user to view the profiles of the alleged abusers in the user's local vicinity.
+        if (reports_to_alert.length) {
+            var msg = 'There have been ' + reports_to_alert.length.toString() + ' new consent violations filed in FAADE that';
+            msg += ' reportedly may have been perpetrated near your location (' + user_loc.join(', ') + ')!';
+            msg += ' Click "OK" to view the profiles of the people who have been accused of consent violations.';
+            msg += "\n\n(Don't worry, I'm not looking for where you actually are. Your location was determined from your FetLife profile.)";
+            if (unsafeWindow.confirm(msg)) {
+                for (var i = 0; i < reports_to_alert.length; i++) {
+                    var url = 'https://fetlife.com/users/';
+                    GM_openInTab(url + reports_to_alert[i].childNodes[2].textContent.match(/\d+/)[0]);
+                }
+            }
+        }
+    }
+
+    // Make a note of the latest timestamp filed, so we start here next time we're loaded.
+    FAADE.setValue('last_timestamp_checked', latest_timestamp_filed.toString());
+};
+
 // This is the main() function, executed on page load.
 FAADE.main = function () {
     // Make a list of known alleged abuser user IDs.
@@ -151,6 +238,15 @@ FAADE.main = function () {
         abuser_ids.push(els[i].innerHTML);
     }
     FAADE.log('recalled abuser ids ' + abuser_ids);
+
+    // TODO: Refactor this, it's kludgy.
+    setTimeout(function() {
+        FAADE.log('Running time-delayed function.');
+        if (FL_ASL.users[uw.FetLife.currentUser.id].profile_html) {
+            FAADE.log('We have the current user\'s FetLife profile HTML. Running broadcast checks.');
+            FAADE.broadcastNewProximalReports(doc);
+        }
+    }, 3000); // give us a few seconds to grab the current user's FetLife profile HTML.
 
     // Are we on a user profile page?
     if (window.location.href.match(/users\/(\d+)\/?$/)) {
