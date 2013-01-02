@@ -28,7 +28,7 @@ If you use the [Google Chrome](https://chrome.google.com/) web browser (version 
 
 ## Installing
 
-To install the FetLife Alleged Abusers Database Engine, go to [http://maybemaimed.com/playground/fetlife-alleged-abusers-database-engine/](http://maybemaimed.com/playground/fetlife-alleged-abusers-database-engine/) and click the "[Download and install](https://userscripts.org/scripts/source/151016.user.js)" near the middle of the page:
+To install the FetLife Alleged Abusers Database Engine, go to [http://maybemaimed.com/playground/fetlife-alleged-abusers-database-engine/](http://maybemaimed.com/playground/fetlife-alleged-abusers-database-engine/) and click "[Download and install](https://userscripts.org/scripts/source/151016.user.js)" near the middle of the page:
 
 > [Download and install FetLife Alleged Abusers Database Engine](https://userscripts.org/scripts/source/151016.user.js)
 
@@ -46,7 +46,13 @@ Once you have filed your report, it will be displayed to other FAADE users near 
 
 ![Screenshot of FetLife profile with record of alleged consent violation.](http://i.imgur.com/XSAHN.png)
 
-Please be patient. It may take up to 24 hours for your report to be visible on FetLife pages to other FAADE users, but it will be immediately [available on the open Internet](https://docs.google.com/spreadsheet/pub?key=0ArYmNHuRadHbdGNVT1kzSzFnOXhHRjh1RnczZVVmMXc&output=html). The entire database of alleged abuses is also available for download to anyone, regardless of whether they use FAADE or not, in multiple formats:
+Please be patient. It may take up to 24 hours for your report to be visible on FetLife pages to other FAADE users, but it will be immediately [available on the open Internet](https://docs.google.com/spreadsheet/pub?key=0ArYmNHuRadHbdGNVT1kzSzFnOXhHRjh1RnczZVVmMXc&output=html). As new reports are filed, FAADE will proactively alert you of them with a dialogue box (an example is shown in the screenshot below) if they allegedly occurred in or near the same geographic region as listed on your FetLife profile.
+
+![Screenshot of FAADE dialogue box broadcasting geographically proximal reports.](http://i.imgur.com/ITdh0.png)
+
+For this feature to work most reliably, avoid using abbreviations when you complete the "Where did the abuse happen?" question in the report form when you are filing a report yourself. That is, prefer entering "Baltimore, Maryland" over "B'more, MD."
+
+The entire database of alleged abuses is also available for download to anyone, regardless of whether they use FAADE or not, in multiple formats:
 
 * [Download the database of alleged abuses by FetLife users in CSV format.](https://docs.google.com/spreadsheet/pub?key=0ArYmNHuRadHbdGNVT1kzSzFnOXhHRjh1RnczZVVmMXc&output=csv)
 * [Download the database of alleged abuses by FetLife users in plain text format.](https://docs.google.com/spreadsheet/pub?key=0ArYmNHuRadHbdGNVT1kzSzFnOXhHRjh1RnczZVVmMXc&output=txt)
@@ -85,7 +91,7 @@ No. There will never be an option for removing anyone from the database. And no,
 
 ### What can I do if I've been falsely accused?
 
-You can update your FetLife profile to address the allegation. Be sure to respond to the allegation at the very beginning of your "About me" section so that it is displayed close to the report you believe is false. Each report filed against you is numbered, so if you believe there are multiple false accusations, you can refer to them by number.
+You can update your FetLife profile to address the allegation. Be sure to respond to the allegation at the very beginning of your "About me" section so that it is displayed close to the report you believe is false. Each report filed against you is numbered, so if you believe there are multiple false accusations, you can refer (and even link) to them by number. For instance, if your FetLife user ID number is `1`, and you have two FAADE reports associated with your profile, then you can link to the second of the two reports on your profile page with the following URL: [https://fetlife.com/users/1#faade_abuse_report-2](https://fetlife.com/users/1#faade_abuse_report-2)
 
 ### Where can I learn more about this issue?
 
@@ -100,7 +106,10 @@ Each of the pages listed above also contain numerous additional links. Take the 
 
 ## Change log
 
+* Version 0.2:
+    * FAADE now pro-actively alerts you when a new consent violation reportedly happened in your area.
+    * Each FAADE report, when displayed on a FetLife profile page, now includes [permalinks](https://en.wikipedia.org/wiki/Permalink) to link directly to a given report.
 * Version 0.1.1:
-** Added support for Google Chrome with the Tampermonkey extension installed.
+    * Added support for Google Chrome with the Tampermonkey extension installed.
 * Version 0.1:
-** Initial release.
+    * Initial release.

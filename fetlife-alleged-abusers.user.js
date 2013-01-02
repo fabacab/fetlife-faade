@@ -187,7 +187,7 @@ FAADE.injectDialog = function () {
     faade_dialog.setAttribute('tabindex', '-1');
     faade_dialog.setAttribute('role', 'dialog');
     faade_dialog.setAttribute('aria-labelledby', 'ui-dialog-title-faade');
-    html_string = '<div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix" unselectable="on" style="-moz-user-select: none;">';
+    var html_string = '<div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix" unselectable="on" style="-moz-user-select: none;">';
     html_string += '<span class="ui-dialog-title" id="ui-dialog-title-faade" unselectable="on" style="-moz-user-select: none;">FetLife Alleged Abusers Database Engine (FAADE)</span>';
     html_string += '<a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button" unselectable="on" style="-moz-user-select: none;">';
     html_string += '<span class="ui-icon ui-icon-closethick" unselectable="on" style="-moz-user-select: none;">close</span>';
@@ -346,9 +346,13 @@ FAADE.main = function () {
                 var num = iy + 1;
                 var tr = document.createElement('tr');
                 tr.setAttribute('id', 'faade_abuse_report-' + num.toString());
-                details_html = '<ul><li class="faade_abuse_report_datetime">' + abuse_reports[iy].childNodes[7].innerHTML + '</li>';
+                var details_html = '<ul><li class="faade_abuse_report_datetime">' + abuse_reports[iy].childNodes[7].innerHTML + '</li>';
                 details_html += '<li class="faade_abuse_report_location">' + abuse_reports[iy].childNodes[6].innerHTML + '</li></ul>';
-                tr.innerHTML += '<th>Abuse report ' + num.toString() + ' (<span class="faade_abuse_reported_datetime">' +  abuse_reports[iy].childNodes[1].innerHTML + '</span>):' + details_html + '</th>';
+                var permalink_html = '<a class="faade_abuse_reported_datetime" rel="bookmark" href="'
+                    + window.location + '#faade_abuse_report-' + num.toString()
+                    + '" title="Permalink for FAADE abuse report number ' + num.toString() + ' against '
+                    + profile_nick + '.">' +  abuse_reports[iy].childNodes[1].innerHTML + '</a>';
+                tr.innerHTML += '<th>Abuse report ' + num.toString() + ' (' + permalink_html + '):' + details_html + '</th>';
                 tr.innerHTML += '<td>' + abuse_reports[iy].childNodes[5].innerHTML + '</td>';
                 report_el.appendChild(tr);
             }
