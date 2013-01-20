@@ -101,6 +101,9 @@ The following articles are important reads that offer additional background and 
 * [FetLife Is Not Safe for Users](http://sexandthe405.com/fetlife-is-not-safe-for-users/)
 * [Fetlife: Not Consent Counts, but Convictions Count, eh?](http://www.consentculture.com/2012/03/fetlife-not-consent-counts-but-convictions-count-eh/)
 * [Let's get practical: Care about Internet privacy because it keeps your loved ones physically safer](http://days.maybemaimed.com/post/30606054306/lets-get-practical-care-about-internet-privacy)
+* [ABSTRACT: Tracking Rape Culture's Social License to Operate Online](http://days.maybemaimed.com/post/38483206883/abstract-tracking-rape-cultures-social-license-to)
+* [Help FetLife's Rape Culture FAADE Away](http://days.maybemaimed.com/post/39785638940/last-october-i-introduced-the-fetlife-alleged)
+* [Realize that Karlson-Martini is the kind of person the BDSM community protects. That 19 year old Elizabeth ‘Lizzie’ Marriott and Noelle Paquette are the people who die because of it.](http://days.maybemaimed.com/post/40867303649/in-the-last-week-or-so-i-found-out-that-susan)
 
 Each of the pages listed above also contain numerous additional links. Take the red pill and see how deep the rabbit hole goes.
 
