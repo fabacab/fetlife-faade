@@ -1,6 +1,6 @@
-# FetLife Alleged Abusers Database Engine (FAADE)
+# Predator Alert Tool for FetLife (formerly the FetLife Alleged Abusers Database Engine, or FAADE)
 
-The FetLife Alleged Abusers Database Engine, or FAADE, is a tool that alerts you of profiles on [FetLife](https://fetlife.com/) belonging to people who have reportedly violated others' consent, such as through sexual assault or rape. This tool is a response to what is, as of this writing, [one of the most popular suggestions in the FetLife suggestion box](https://fetlife.com/improvements/429):
+The Predator Alert Tool for FetLife, or PAT-FetLife, is a tool that alerts you of profiles on [FetLife](https://en.wikipedia.org/wiki/FetLife) belonging to people who have reportedly violated others' consent, such as through sexual assault or rape. It was formerly called the FetLife Alleged Abusers Database Engine (FAADE). This tool is a response to what is, as of this writing, [one of the most popular suggestions in the FetLife suggestion box](https://fetlife.com/improvements/429):
 
 > Let us name abusers.
 >
@@ -12,11 +12,11 @@ Make criminal accusations against another member in a public forum. [...]"
 >
 > While these conditions may be invoked to stop harassment and to shield Fetlife from liability, they also prevent members of our community from publicly naming and speaking out against abusers, rapists, and other predators. Given Fetlife's prominence and the role it plays in supporting and expanding kink community - particularly its role as a point of entry into the community for young, inexperienced, or otherwise vulnerable people - we feel that Fetlife's current policy is irresponsible and tantamount to enabling abuse. PLEASE CHANGE IT.
 
-FAADE empowers Internet users like you to anonymously report harassment, rape, and other abuses they have experienced at the hands of a person with a FetLife account. Your report is then automatically disemminated to other FAADE users, as well as being published on the open Internet. While browsing FetLife, FAADE will also highlight any user profile you encounter that has allegedly violated another person's consent. Click through to the user's profile for a complete listing of reported consent violations.
+The Predator Alert Tool for FetLife (PAT-FetLife) empowers Internet users like you to anonymously report harassment, rape, and other abuses they have experienced at the hands of a person with a FetLife account. Your report is then automatically disemminated to other PAT-FetLife users, as well as being published on the open Internet. While browsing FetLife, PAT-FetLife will also highlight any user profile you encounter that has allegedly violated another person's consent. Click through to the user's profile for a complete listing of reported consent violations.
 
 ## System requirements
 
-The following software must be installed on your system before installing the FetLife Alleged Abusers Database Engine user script.
+The following software must be installed on your system before installing the Predator Alert Tool for FetLife user script.
 
 ### Mozilla Firefox
 
@@ -28,31 +28,31 @@ If you use the [Google Chrome](https://chrome.google.com/) web browser (version 
 
 ## Installing
 
-To install the FetLife Alleged Abusers Database Engine, go to [http://maybemaimed.com/playground/fetlife-alleged-abusers-database-engine/](http://maybemaimed.com/playground/fetlife-alleged-abusers-database-engine/) and click "[Download and install](https://userscripts.org/scripts/source/151016.user.js)" near the middle of the page:
+To install the Predator Alert Tool for FetLife, go to [http://maybemaimed.com/playground/predator-alert-tool-for-fetlife/](http://maybemaimed.com/playground/predator-alert-tool-for-fetlife/) and click "[Download and install](https://userscripts.org/scripts/source/151016.user.js)" near the middle of the page:
 
-> [Download and install FetLife Alleged Abusers Database Engine](https://userscripts.org/scripts/source/151016.user.js)
+> [Download and install Predator Alert Tool for FetLife](https://userscripts.org/scripts/source/151016.user.js)
 
 If you enjoy this script, please consider tossing a few metaphorical coins in [my cyberbusking hat](http://maybemaimed.com/cyberbusking/). :) Your donations are sincerely appreciated! Can't afford to part with any coin? It's cool. [Tweet your appreciation, instead](https://twitter.com/intent/tweet?text=%23FetLife%20Alleged%20Abusers%20Database%20Engine%3A%20http%3A%2F%2Fmaybemaimed.com%2Fplayground%2Ffetlife-alleged-abusers-database-engine%2F%20Please%20help%20us%20transform%20rape%20culture%20into%20%23consent%20culture%21%20SPREAD%20THE%20WORD.).
 
-If [maybemaimed.com is censored](http://maybemaimed.com/where-im-censored/) where you are, you can alternatively go to [the Userscripts.org page for FetLife Alleged Abusers Database Engine](https://userscripts.org/scripts/show/151016) and click on "[Install](http://userscripts.org/scripts/source/151016.user.js)". If the tool is also unavailable there, you can alternatively [download FAADE from GitHub.com](https://github.com/meitar/fetlife-faade/raw/master/fetlife-alleged-abusers.user.js).
+If [maybemaimed.com is censored](http://maybemaimed.com/where-im-censored/) where you are, you can alternatively go to [the Userscripts.org page for Predator Alert Tool for FetLife](https://userscripts.org/scripts/show/151016) and click on "[Install](http://userscripts.org/scripts/source/151016.user.js)". If the tool is also unavailable there, you can alternatively [download PAT-FetLife from GitHub.com](https://github.com/meitar/fetlife-faade/raw/master/fetlife-alleged-abusers.user.js).
 
 ## Using
 
-To use the FetLife Alleged Abusers Database Engine (FAADE), [log in to your FetLife.com account](https://fetlife.com/login) and click the "(report a consent violation by *username*)" link next to the FetLife username of the user who you wish to report for an alleged assault, rape, or other violation of your consent.
+To use the Predator Alert Tool for FetLife (PAT-FetLife), [log in to your FetLife.com account](https://fetlife.com/login) and click the "(report a consent violation by *username*)" link next to the FetLife username of the user who you wish to report for an alleged assault, rape, or other violation of your consent.
 
 When you click a "report a consent violation" link, you will be presented with a form asking you for pertinent information related to the violation you would like to report. Follow the instructions on the form and click "Submit" to complete your report.
 
-Once you have filed your report, it will be displayed to other FAADE users near the top of the alleged abuser's FetLife profile, as shown in the example below:
+Once you have filed your report, it will be displayed to other PAT-FetLife users near the top of the alleged abuser's FetLife profile, as shown in the example below:
 
 ![Screenshot of FetLife profile with record of alleged consent violation.](http://i.imgur.com/XSAHN.png)
 
-Please be patient. It may take up to 24 hours for your report to be visible on FetLife pages to other FAADE users, but it will be immediately [available on the open Internet](https://docs.google.com/spreadsheet/pub?key=0ArYmNHuRadHbdGNVT1kzSzFnOXhHRjh1RnczZVVmMXc&output=html). As new reports are filed, FAADE will proactively alert you of them with a dialogue box (an example is shown in the screenshot below) if they allegedly occurred in or near the same geographic region as listed on your FetLife profile.
+Please be patient. It may take up to 24 hours for your report to be visible on FetLife pages to other PAT-FetLife users, but it will be immediately [available on the open Internet](https://docs.google.com/spreadsheet/pub?key=0ArYmNHuRadHbdGNVT1kzSzFnOXhHRjh1RnczZVVmMXc&output=html). As new reports are filed, PAT-FetLife will proactively alert you of them with a dialogue box (an example is shown in the screenshot below) if they allegedly occurred in or near the same geographic region as listed on your FetLife profile.
 
-![Screenshot of FAADE dialogue box broadcasting geographically proximal reports.](http://i.imgur.com/ITdh0.png)
+![Screenshot of PAT-FetLife dialogue box broadcasting geographically proximal reports.](http://i.imgur.com/ITdh0.png)
 
 For this feature to work most reliably, avoid using abbreviations when you complete the "Where did the abuse happen?" question in the report form when you are filing a report yourself. That is, prefer entering "Baltimore, Maryland" over "B'more, MD."
 
-The entire database of alleged abuses is also available for download to anyone, regardless of whether they use FAADE or not, in multiple formats:
+The entire database of alleged abuses is also available for download to anyone, regardless of whether they use PAT-FetLife or not, in multiple formats:
 
 * [Download the database of alleged abuses by FetLife users in CSV format.](https://docs.google.com/spreadsheet/pub?key=0ArYmNHuRadHbdGNVT1kzSzFnOXhHRjh1RnczZVVmMXc&output=csv)
 * [Download the database of alleged abuses by FetLife users in plain text format.](https://docs.google.com/spreadsheet/pub?key=0ArYmNHuRadHbdGNVT1kzSzFnOXhHRjh1RnczZVVmMXc&output=txt)
@@ -67,7 +67,7 @@ Additionally, you can also subscribe to receive updates of alleged abuses:
 
 ## Frequently Asked Questions
 
-Before you report a new issue with the FetLife Alleged Abusers Database Engine (FAADE), please check to ensure your question is not already addressed in the list below.
+Before you report a new issue with the Predator Alert Tool for FetLife (PAT-FetLife), please check to ensure your question is not already addressed in the list below.
 
 * [Can I report a consent violation anonymously?](#can-i-report-a-consent-violation-anonymously)
 * [Can I report a consent violation if I don't have a FetLife account?](#can-i-report-a-consent-violation-if-i-dont-have-a-fetlife-account)
@@ -77,7 +77,7 @@ Before you report a new issue with the FetLife Alleged Abusers Database Engine (
 
 ### Can I report a consent violation anonymously?
 
-Yes. FAADE will never require the use of your personally identifying information to be reported, nor will it ever collect your personal information. When you file a report of abuse, you are welcome to include as much or as little information about yourself as you feel comfortable doing.
+Yes. PAT-FetLife will never require the use of your personally identifying information to be reported, nor will it ever collect your personal information. When you file a report of abuse, you are welcome to include as much or as little information about yourself as you feel comfortable doing.
 
 ### Can I report a consent violation if I don't have a FetLife account?
 
@@ -91,7 +91,7 @@ No. There will never be an option for removing anyone from the database. And no,
 
 ### What can I do if I've been falsely accused?
 
-You can update your FetLife profile to address the allegation. Be sure to respond to the allegation at the very beginning of your "About me" section so that it is displayed close to the report you believe is false. Each report filed against you is numbered, so if you believe there are multiple false accusations, you can refer (and even link) to them by number. For instance, if your FetLife user ID number is `1`, and you have two FAADE reports associated with your profile, then you can link to the second of the two reports on your profile page with the following URL: [https://fetlife.com/users/1#faade_abuse_report-2](https://fetlife.com/users/1#faade_abuse_report-2)
+You can update your FetLife profile to address the allegation. Be sure to respond to the allegation at the very beginning of your "About me" section so that it is displayed close to the report you believe is false. Each report filed against you is numbered, so if you believe there are multiple false accusations, you can refer (and even link) to them by number. For instance, if your FetLife user ID number is `1`, and you have two PAT-FetLife reports associated with your profile, then you can link to the second of the two reports on your profile page with the following URL: [https://fetlife.com/users/1#faade_abuse_report-2](https://fetlife.com/users/1#faade_abuse_report-2)
 
 ### Where can I learn more about this issue?
 
@@ -109,6 +109,8 @@ Each of the pages listed above also contain numerous additional links. Take the 
 
 ## Change log
 
+* Version 0.2.1:
+    * Renamed to Predator Alert Tool for FetLife (PAT-FetLife).
 * Version 0.2:
     * FAADE now pro-actively alerts you when a new consent violation reportedly happened in your area.
     * Each FAADE report, when displayed on a FetLife profile page, now includes [permalinks](https://en.wikipedia.org/wiki/Permalink) to link directly to a given report.

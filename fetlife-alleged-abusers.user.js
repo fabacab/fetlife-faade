@@ -5,8 +5,8 @@
  * @author maymay <bitetheappleback@gmail.com>
  */
 // ==UserScript==
-// @name           FetLife Alleged Abusers Database Engine (FAADE)
-// @version        0.2
+// @name           Predator Alert Tool for FetLife (PAT-FetLife)
+// @version        0.2.1
 // @namespace      com.maybemaimed.fetlife.faade
 // @updateURL      https://userscripts.org/scripts/source/151016.user.js
 // @description    Alerts you of people who have allegedly assaulted others as you browse FetLife. Empowers you to anonymously report a consent violation perpetrated by a FetLife user.
@@ -188,16 +188,16 @@ FAADE.injectDialog = function () {
     faade_dialog.setAttribute('role', 'dialog');
     faade_dialog.setAttribute('aria-labelledby', 'ui-dialog-title-faade');
     var html_string = '<div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix" unselectable="on" style="-moz-user-select: none;">';
-    html_string += '<span class="ui-dialog-title" id="ui-dialog-title-faade" unselectable="on" style="-moz-user-select: none;">FetLife Alleged Abusers Database Engine (FAADE)</span>';
+    html_string += '<span class="ui-dialog-title" id="ui-dialog-title-faade" unselectable="on" style="-moz-user-select: none;">Predator Alert Tool for FetLife (PAT-FetLife)</span>';
     html_string += '<a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button" unselectable="on" style="-moz-user-select: none;">';
     html_string += '<span class="ui-icon ui-icon-closethick" unselectable="on" style="-moz-user-select: none;">close</span>';
     html_string += '</a>';
     html_string += '</div>';
-    html_string += '<div data-modal-title="FetLife Alleged Abusers Database Engine (FAADE)" data-modal-height="280" data-modal-auto-open="false" class="modal ui-dialog-content ui-widget-content" id="faade">';
-    html_string += '<p class="mbm">There have been <span id="faade_reports_to_alert">X</span> new consent violations filed in FAADE that may have been perpetrated near your location (<span id="faade_user_loc">X, X, X</span>).</p>';
-    html_string += '<p>Click "View new nearby FAADE reports" to view the profiles of the people who have been accused of consent violations near your area in new tabs.</p>';
+    html_string += '<div data-modal-title="Predator Alert Tool for FetLife (PAT-FetLife)" data-modal-height="280" data-modal-auto-open="false" class="modal ui-dialog-content ui-widget-content" id="faade">';
+    html_string += '<p class="mbm">There have been <span id="faade_reports_to_alert">X</span> new consent violations filed to the Predator Alert Tool for FetLife that may have been perpetrated near your location (<span id="faade_user_loc">X, X, X</span>).</p>';
+    html_string += '<p>Click "View new nearby PAT-FetLife reports" to view the profiles of the people who have been accused of consent violations near your area in new tabs.</p>';
     html_string += '<p id="faade-actions" class="ac">';
-    html_string += '<a rel="nofollow" class="btnsqr close" data-closes-modal="faade" href="#">View new nearby FAADE reports</a>';
+    html_string += '<a rel="nofollow" class="btnsqr close" data-closes-modal="faade" href="#">View new nearby PAT-FetLife reports</a>';
     html_string += '<span class="i s q">&nbsp;-or-&nbsp;</span>';
     html_string += '<a data-closes-modal="faade" class="close tdn q" href="#">Cancel</a>';
     html_string += '</p>';
@@ -350,7 +350,7 @@ FAADE.main = function () {
                 details_html += '<li class="faade_abuse_report_location">' + abuse_reports[iy].childNodes[6].innerHTML + '</li></ul>';
                 var permalink_html = '<a class="faade_abuse_reported_datetime" rel="bookmark" href="'
                     + window.location + '#faade_abuse_report-' + num.toString()
-                    + '" title="Permalink for FAADE abuse report number ' + num.toString() + ' against '
+                    + '" title="Permalink for PAT-FetLife abuse report number ' + num.toString() + ' against '
                     + profile_nick + '.">' +  abuse_reports[iy].childNodes[1].innerHTML + '</a>';
                 tr.innerHTML += '<th>Abuse report ' + num.toString() + ' (' + permalink_html + '):' + details_html + '</th>';
                 tr.innerHTML += '<td>' + abuse_reports[iy].childNodes[5].innerHTML + '</td>';
