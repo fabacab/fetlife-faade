@@ -12,7 +12,18 @@ Make criminal accusations against another member in a public forum. [...]"
 >
 > While these conditions may be invoked to stop harassment and to shield Fetlife from liability, they also prevent members of our community from publicly naming and speaking out against abusers, rapists, and other predators. Given Fetlife's prominence and the role it plays in supporting and expanding kink community - particularly its role as a point of entry into the community for young, inexperienced, or otherwise vulnerable people - we feel that Fetlife's current policy is irresponsible and tantamount to enabling abuse. PLEASE CHANGE IT.
 
-The Predator Alert Tool for FetLife (PAT-FetLife) empowers Internet users like you to anonymously report harassment, rape, and other abuses they have experienced at the hands of a person with a FetLife account. Your report is then automatically disemminated to other PAT-FetLife users, as well as being published on the open Internet. While browsing FetLife, PAT-FetLife will also highlight any user profile you encounter that has allegedly violated another person's consent. Click through to the user's profile for a complete listing of reported consent violations.
+The Predator Alert Tool for FetLife (PAT-FetLife) empowers Internet users like you to anonymously report harassment, rape, and other abuses they have experienced at the hands of a person with a FetLife account. Your report is then automatically disemminated to other PAT-FetLife users, as well as being published on the open Internet.
+
+Additionally:
+
+* While browsing FetLife, the Predator Alert Tool will visually highlight any user profile you encounter that has allegedly violated another person's consent. Click through to the user's profile for a complete listing of reported consent violations.
+* Each time you load a user's FetLife profile, that user's profile picture is scanned against the United States's Sex Offender Registry using the facial recognition service provided by CreepShield.com, and the most likely match is shown to you:
+
+![Screenshot of FetLife profile picture used as CreepShield.com search.](https://i.imgur.com/8oPV7Uw.png)
+
+Click the "Search" button to get the full search results from CreepShield.com:
+
+![Screenshot of CreepShield.com search results from FetLife profile picture.](https://i.imgur.com/fd5Z1T9.png)
 
 ## System requirements
 
@@ -105,10 +116,16 @@ The following articles are important reads that offer additional background and 
 * [Help FetLife's Rape Culture FAADE Away](http://days.maybemaimed.com/post/39785638940/last-october-i-introduced-the-fetlife-alleged)
 * [Realize that Karlson-Martini is the kind of person the BDSM community protects. That 19 year old Elizabeth ‘Lizzie’ Marriott and Noelle Paquette are the people who die because of it.](http://days.maybemaimed.com/post/40867303649/in-the-last-week-or-so-i-found-out-that-susan)
 
+Regading the Sex Offender Registry:
+
+* [Sexual Predators, Please Check Here: Match.com’s Deeply Flawed Plan to Screen for Sex Offenders](https://www.eff.org/deeplinks/2011/04/sexual-predators-please-check-here-match-com-s)
+
 Each of the pages listed above also contain numerous additional links. Take the red pill and see how deep the rabbit hole goes.
 
 ## Change log
 
+* Version 0.3:
+    * Integration with CreepShield.com now offers automatic facial recognition scans of FetLife user profile pictures against the United States national Sex Offender Registry.
 * Version 0.2.1:
     * Renamed to Predator Alert Tool for FetLife (PAT-FetLife).
 * Version 0.2:

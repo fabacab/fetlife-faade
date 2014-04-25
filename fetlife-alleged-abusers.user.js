@@ -6,11 +6,12 @@
  */
 // ==UserScript==
 // @name           Predator Alert Tool for FetLife (PAT-FetLife)
-// @version        0.2.1
+// @version        0.3
 // @namespace      com.maybemaimed.fetlife.faade
 // @updateURL      https://userscripts.org/scripts/source/151016.user.js
 // @description    Alerts you of people who have allegedly assaulted others as you browse FetLife. Empowers you to anonymously report a consent violation perpetrated by a FetLife user.
 // @include        https://fetlife.com/*
+// @include        http://www.creepshield.com/search*
 // @exclude        https://fetlife.com/adgear/*
 // @exclude        https://fetlife.com/chat/*
 // @exclude        https://fetlife.com/im_sessions*
@@ -100,6 +101,11 @@ ul.pictures li a.faade_report_link,\
 #profile ul.friends li { width: auto; }\
 ');
 FAADE.init = function () {
+    // Whenever we load CreepShield, just clear the cookies.
+    if (window.location.hostname.match(/creepshield.com/)) {
+        FAADE.clearCookies();
+        return;
+    }
     FL_ASL.getUserProfile(uw.FetLife.currentUser.id); // run early
     FAADE.injectDialog();
     FAADE.abuser_database = FAADE.getValue('abuser_database', false);
@@ -315,6 +321,7 @@ FAADE.creepShield.checkPhotoUrl = function (url) {
 };
 FAADE.creepShield.parseResults = function (doc) {
     var ret = {
+        'searched_url' : doc.querySelector('.searched-image').getAttribute('src'),
         'matches_count': doc.querySelectorAll('.person').length,
         'highest_match': doc.querySelector('.match-percentage p:nth-child(2)').textContent.match(/\d+%/),
         'highest_photo': doc.querySelector('.person-images-inner img'),
@@ -333,21 +340,39 @@ FAADE.creepShield.displayOnFetLife = function (creep_data) {
     html += '<ul>';
     html += '<li>Highest facial match: ' + creep_data.highest_match + '</li>'
     html += '<li>Most likely offender: <img src="' + creep_data.highest_photo.getAttribute('src') + '" alt="" />' + creep_data.person_detail + '</li>';
-    html += '<li>Total possible matches: ' + creep_data.matches_count + '</li>'
+    html += '<li>Total possible matches: ' + creep_data.matches_count + '</li>';
     html += '</ul>';
+    html += '<form method="POST" action="http://www.creepshield.com/search">';
+    html += '<input type="hidden" name="linked_image" value="' + creep_data.searched_url + '" />';
+    html += '<p>Search for criminal histories and other possible offenders: ';
+    html += '<input type="submit" name="submit_linked_image" value="Search" />';
+    html += '</p>';
+    html += '</form>';
     html += FAADE.creepShield.getDisclaimerHtml();
     my_el.innerHTML = html;
     base_el.appendChild(my_el);
 };
 FAADE.creepShield.displayError = function (msg) {
+    var cswin = GM_openInTab('http://www.creepshield.com/search');
+    cswin.blur(); // "popunder"
     var base_el = document.querySelector('.pan').parentNode.parentNode;
     var my_el = document.createElement('div');
     my_el.setAttribute('class', 'pat-fetlife-creepshield-results error');
     var html = '<p>CreepShield returned an error:</p>';
     html += '<blockquote><p>' + msg + '</p></blockquote>';
+    html += '<p>If you are being told you need to login before you can do more searches, simply <a href="javascript:window.location.reload();void(0);">reload this page</a> to try again.</p>';
     html += FAADE.creepShield.getDisclaimerHtml();
     my_el.innerHTML = html;
     base_el.appendChild(my_el);
+};
+
+FAADE.clearCookies = function () {
+    var cookie_list = document.cookie.split(';');
+    for (var i = 0; i < cookie_list.length; i++) {
+        var cookie_name = cookie_list[i].replace(/\s*(\w+)=.+$/, "$1");
+        // To delete a cookie, set its expiration date to a past value.
+        document.cookie = cookie_name + '=;expires=Thu, 01-Jan-1970 00:00:01 GMT;';
+    }
 };
 
 // This is the main() function, executed on page load.
