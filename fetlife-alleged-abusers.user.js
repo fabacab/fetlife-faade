@@ -53,6 +53,7 @@ FAADE.CONFIG = {
 FAADE.log = function (msg) {
     if (!FAADE.CONFIG.debug) { return; }
     GM_log('FETLIFE FAADE: ' + msg);
+    //console.log('FETLIFE FAADE: ' + msg);
 };
 
 // Initializations.
@@ -286,6 +287,53 @@ FAADE.broadcastNewProximalReports = function (doc) {
     FAADE.setValue('last_timestamp_checked', latest_timestamp_filed.toString());
 };
 
+FAADE.creepShield = {};
+FAADE.creepShield.checkPhotoUrl = function (url) {
+    var _formdata = new FormData();
+    _formdata.append('linked_image', url);
+    _formdata.append('submit_linked_image', 'Search'); // Mimic hitting the "Search" button.
+    GM_xmlhttpRequest({
+        'method': 'POST',
+        'url': 'http://www.creepshield.com/search',
+        'data': _formdata,
+        'onload': function (response) {
+            var parser = new DOMParser();
+            var doc = parser.parseFromString(response.responseText, 'text/html');
+            // If our search was successful,
+            if (doc.querySelector('.search-details')) {
+                // Parse the CreepShield results and display on FetLife.
+                var creep_data = FAADE.creepShield.parseResults(doc);
+                FAADE.creepShield.displayOnFetLife(creep_data);
+            } else {
+                FAADE.log('An error occurred searching CreepShield.com.');
+            }
+        }
+    });
+};
+FAADE.creepShield.parseResults = function (doc) {
+    var ret = {
+        'matches_count': doc.querySelectorAll('.person').length,
+        'highest_match': doc.querySelector('.match-percentage p:nth-child(2)').textContent.match(/\d+%/),
+        'highest_photo': doc.querySelector('.person-images-inner img'),
+        'person_detail': doc.querySelector('.person-name').textContent
+    };
+    return ret;
+};
+FAADE.creepShield.displayOnFetLife = function (creep_data) {
+    var base_el = document.querySelector('.pan').parentNode.parentNode;
+    var my_el = document.createElement('div');
+    my_el.setAttribute('class', 'pat-fetlife-creepshield-results');
+    var html = '<h3>Possible Registered Sex Offender matches:</h3>';
+    html += '<ul>';
+    html += '<li>Highest facial match: ' + creep_data.highest_match + '</li>'
+    html += '<li>Most likely offender: <img src="' + creep_data.highest_photo.getAttribute('src') + '" alt="" />' + creep_data.person_detail + '</li>';
+    html += '<li>Total possible matches: ' + creep_data.matches_count + '</li>'
+    html += '</ul>';
+    html += '<p>This feature is powered by the facial recognition service at <a href="http://creepshield.com/">CreepShield.com</a>. The registered sex offender database is <em>not</em> always a reliable source of information. <a href="https://www.eff.org/deeplinks/2011/04/sexual-predators-please-check-here-match-com-s">Learn more</a>.</p>';
+    my_el.innerHTML = html;
+    base_el.appendChild(my_el);
+};
+
 // This is the main() function, executed on page load.
 FAADE.main = function () {
     // Make a list of known alleged abuser user IDs.
@@ -312,6 +360,13 @@ FAADE.main = function () {
 
         var profile_nick = document.querySelector('h2.bottom').childNodes[0].textContent.match(/\S+/)[0];
         var id_in_url = window.location.href.match(/users\/(\d+)\/?$/)[1];
+        var userpic_el = document.querySelector('.pan');
+        // If we can grab this person's userpic, send it off to CreepSheild for testing.
+        if (userpic_el) {
+            var userpic_src = userpic_el.getAttribute('src');
+            // This will check and call back to the renderer, so we can move on now.
+            FAADE.creepShield.checkPhotoUrl(userpic_src);
+        }
 
         // If we're not viewing our own profile page, insert a report link.
         usr_ops = document.querySelector('#main_content p.quiet');
