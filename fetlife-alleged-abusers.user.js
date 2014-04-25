@@ -306,6 +306,9 @@ FAADE.creepShield.checkPhotoUrl = function (url) {
                 FAADE.creepShield.displayOnFetLife(creep_data);
             } else {
                 FAADE.log('An error occurred searching CreepShield.com.');
+                if (doc.getElementById('messages')) {
+                    FAADE.creepShield.displayError(doc.getElementById('messages').textContent);
+                }
             }
         }
     });
@@ -319,6 +322,9 @@ FAADE.creepShield.parseResults = function (doc) {
     };
     return ret;
 };
+FAADE.creepShield.getDisclaimerHtml = function () {
+    return '<p>This feature is powered by the facial recognition service at <a href="http://creepshield.com/">CreepShield.com</a>. The registered sex offender database is <em>not</em> always a reliable source of information. <a href="https://www.eff.org/deeplinks/2011/04/sexual-predators-please-check-here-match-com-s">Learn more</a>.</p>';
+};
 FAADE.creepShield.displayOnFetLife = function (creep_data) {
     var base_el = document.querySelector('.pan').parentNode.parentNode;
     var my_el = document.createElement('div');
@@ -329,7 +335,17 @@ FAADE.creepShield.displayOnFetLife = function (creep_data) {
     html += '<li>Most likely offender: <img src="' + creep_data.highest_photo.getAttribute('src') + '" alt="" />' + creep_data.person_detail + '</li>';
     html += '<li>Total possible matches: ' + creep_data.matches_count + '</li>'
     html += '</ul>';
-    html += '<p>This feature is powered by the facial recognition service at <a href="http://creepshield.com/">CreepShield.com</a>. The registered sex offender database is <em>not</em> always a reliable source of information. <a href="https://www.eff.org/deeplinks/2011/04/sexual-predators-please-check-here-match-com-s">Learn more</a>.</p>';
+    html += FAADE.creepShield.getDisclaimerHtml();
+    my_el.innerHTML = html;
+    base_el.appendChild(my_el);
+};
+FAADE.creepShield.displayError = function (msg) {
+    var base_el = document.querySelector('.pan').parentNode.parentNode;
+    var my_el = document.createElement('div');
+    my_el.setAttribute('class', 'pat-fetlife-creepshield-results error');
+    var html = '<p>CreepShield returned an error:</p>';
+    html += '<blockquote><p>' + msg + '</p></blockquote>';
+    html += FAADE.creepShield.getDisclaimerHtml();
     my_el.innerHTML = html;
     base_el.appendChild(my_el);
 };
