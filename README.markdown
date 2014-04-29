@@ -124,6 +124,8 @@ Each of the pages listed above also contain numerous additional links. Take the 
 
 ## Change log
 
+* Version 0.3.1:
+    * [Bugfix](https://github.com/meitar/fetlife-faade/issues/4): Enable CreepShield integration for Google Chrome by creating the `multipart/form-data` request it expects manually.
 * Version 0.3:
     * Integration with CreepShield.com now offers automatic facial recognition scans of FetLife user profile pictures against the United States national Sex Offender Registry.
 * Version 0.2.1:
