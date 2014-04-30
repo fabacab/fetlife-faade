@@ -371,7 +371,9 @@ FAADE.creepShield.displayOnFetLife = function (creep_data) {
 };
 FAADE.creepShield.displayError = function (msg) {
     var cswin = GM_openInTab('http://www.creepshield.com/search');
-    cswin.blur(); // "popunder"
+    if (cswin.blur) {
+        cswin.blur(); // "popunder"
+    }
     var base_el = document.querySelector('.pan').parentNode.parentNode;
     var my_el = document.createElement('div');
     my_el.setAttribute('class', 'pat-fetlife-creepshield-results error');
