@@ -124,6 +124,8 @@ Each of the pages listed above also contain numerous additional links. Take the 
 
 ## Change log
 
+* Version 0.3.2:
+    * Enhancement: Only open new tabs for CreepShield.com when required by the specific error message.
 * Version 0.3.1:
     * [Bugfix](https://github.com/meitar/fetlife-faade/issues/4): Enable CreepShield integration for Google Chrome by creating the `multipart/form-data` request it expects manually.
 * Version 0.3:

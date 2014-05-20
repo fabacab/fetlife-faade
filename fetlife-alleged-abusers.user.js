@@ -6,7 +6,7 @@
  */
 // ==UserScript==
 // @name           Predator Alert Tool for FetLife (PAT-FetLife)
-// @version        0.3.1
+// @version        0.3.2
 // @namespace      com.maybemaimed.fetlife.faade
 // @updateURL      https://userscripts.org/scripts/source/151016.user.js
 // @description    Alerts you of people who have allegedly assaulted others as you browse FetLife. Empowers you to anonymously report a consent violation perpetrated by a FetLife user.
@@ -370,10 +370,6 @@ FAADE.creepShield.displayOnFetLife = function (creep_data) {
     base_el.appendChild(my_el);
 };
 FAADE.creepShield.displayError = function (msg) {
-    var cswin = GM_openInTab('http://www.creepshield.com/search');
-    if (cswin.blur) {
-        cswin.blur(); // "popunder"
-    }
     var base_el = document.querySelector('.pan').parentNode.parentNode;
     var my_el = document.createElement('div');
     my_el.setAttribute('class', 'pat-fetlife-creepshield-results error');
@@ -383,6 +379,10 @@ FAADE.creepShield.displayError = function (msg) {
     html += FAADE.creepShield.getDisclaimerHtml();
     my_el.innerHTML = html;
     base_el.appendChild(my_el);
+    // If free search limit was hit, go to CreepShield.com to flush it out.
+    if (msg.match(/You cannot perform any more searches/i)) {
+        GM_openInTab('http://www.creepshield.com/search');
+    }
 };
 
 FAADE.clearCookies = function () {
