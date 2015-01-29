@@ -8,7 +8,7 @@
 // @name           Predator Alert Tool for FetLife (PAT-FetLife)
 // @version        0.3.2
 // @namespace      com.maybemaimed.fetlife.faade
-// @updateURL      https://userscripts.org/scripts/source/151016.user.js
+// @updateURL      https://github.com/meitar/fetlife-faade/raw/master/fetlife-alleged-abusers.user.js
 // @description    Alerts you of people who have allegedly assaulted others as you browse FetLife. Empowers you to anonymously report a consent violation perpetrated by a FetLife user.
 // @include        https://fetlife.com/*
 // @include        http://www.creepshield.com/search*

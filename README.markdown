@@ -39,9 +39,9 @@ If you use the [Google Chrome](https://chrome.google.com/) web browser (version 
 
 ## Installing
 
-To install the Predator Alert Tool for FetLife, go to [http://maybemaimed.com/playground/predator-alert-tool-for-fetlife/](http://maybemaimed.com/playground/predator-alert-tool-for-fetlife/) and click "[Download and install](https://userscripts.org/scripts/source/151016.user.js)" near the middle of the page:
+To install the Predator Alert Tool for FetLife, go to [http://maybemaimed.com/playground/predator-alert-tool-for-fetlife/](http://maybemaimed.com/playground/predator-alert-tool-for-fetlife/) and click "[Download and install](https://github.com/meitar/fetlife-faade/raw/master/fetlife-alleged-abusers.user.js)" near the middle of the page:
 
-> [Download and install Predator Alert Tool for FetLife](https://userscripts.org/scripts/source/151016.user.js)
+> [Download and install Predator Alert Tool for FetLife](https://github.com/meitar/fetlife-faade/raw/master/fetlife-alleged-abusers.user.js)
 
 If you enjoy this script, please consider tossing a few metaphorical coins in [my cyberbusking hat](http://maybemaimed.com/cyberbusking/). :) Your donations are sincerely appreciated! Can't afford to part with any coin? It's cool. [Tweet your appreciation, instead](https://twitter.com/intent/tweet?text=%23FetLife%20Alleged%20Abusers%20Database%20Engine%3A%20http%3A%2F%2Fmaybemaimed.com%2Fplayground%2Ffetlife-alleged-abusers-database-engine%2F%20Please%20help%20us%20transform%20rape%20culture%20into%20%23consent%20culture%21%20SPREAD%20THE%20WORD.).
 
