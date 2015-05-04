@@ -24,6 +24,42 @@
 // @grant          GM_deleteValue
 // @grant          GM_openInTab
 // ==/UserScript==
+
+FL_UI = {}; // FetLife User Interface module
+FL_UI.Dialog = {};
+FL_UI.Dialog.createLink = function (dialog_id, html_content, parent_node) {
+    var trigger_el = document.createElement('a');
+    trigger_el.setAttribute('class', 'opens-modal');
+    trigger_el.setAttribute('data-opens-modal', dialog_id);
+    trigger_el.innerHTML = html_content;
+    parent_node.appendChild(trigger_el);
+    // Attach event listener to trigger element.
+    parent_node.querySelector('[data-opens-modal="' + dialog_id + '"]').addEventListener('click', function (e) {
+        parent_node.querySelector('[data-opens-modal="' + dialog_id + '"]').dialog("open");
+    });
+};
+FL_UI.Dialog.inject = function (id, title, html_content) {
+    // Inject dialog box HTML. FetLife currently uses Rails 3, so mimic that.
+    // See, for instance, Rails Behaviors: http://josh.github.com/rails-behaviors/
+    var dialog = document.createElement('div');
+    dialog.setAttribute('style', 'display: none; position: absolute; overflow: hidden; z-index: 1000; outline: 0px none;');
+    dialog.setAttribute('class', 'ui-dialog ui-widget ui-widget-content ui-corner-all');
+    dialog.setAttribute('tabindex', '-1');
+    dialog.setAttribute('role', 'dialog');
+    dialog.setAttribute('aria-labelledby', 'ui-dialog-title-' + id);
+    var html_string = '<div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix" unselectable="on" style="-moz-user-select: none;">';
+    html_string += '<span class="ui-dialog-title" id="ui-dialog-title-' + id + '" unselectable="on" style="-moz-user-select: none;">' + title + '</span>';
+    html_string += '<a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button" unselectable="on" style="-moz-user-select: none;">';
+    html_string += '<span class="ui-icon ui-icon-closethick" unselectable="on" style="-moz-user-select: none;">close</span>';
+    html_string += '</a>';
+    html_string += '</div>';
+    html_string += '<div data-modal-title="' + title + '" data-modal-height="280" data-modal-auto-open="false" class="modal ui-dialog-content ui-widget-content" id="' + id + '">';
+    html_string += html_content;
+    html_string += '</div>';
+    dialog.innerHTML = html_string;
+    document.body.appendChild(dialog);
+};
+
 FL_ASL = {};
 FL_ASL.users = {};
 FL_ASL.getUserProfile = function (id) {
@@ -180,28 +216,8 @@ FAADE.fetchAbuserDatabase = function () {
 };
 
 FAADE.injectDialog = function () {
-    // Inject hidden dialog box link.
-    var trigger_el = document.createElement('a');
-    trigger_el.setAttribute('class', 'opens-modal');
-    trigger_el.setAttribute('data-opens-modal', 'faade');
-    document.body.appendChild(trigger_el);
-
-    // Inject dialog box HTML. FetLife currently uses Rails 3, so mimic that.
-    // See, for instance, Rails Behaviors: http://josh.github.com/rails-behaviors/
-    var faade_dialog = document.createElement('div');
-    faade_dialog.setAttribute('style', 'display: none; position: absolute; overflow: hidden; z-index: 1000; outline: 0px none;');
-    faade_dialog.setAttribute('class', 'ui-dialog ui-widget ui-widget-content ui-corner-all');
-    faade_dialog.setAttribute('tabindex', '-1');
-    faade_dialog.setAttribute('role', 'dialog');
-    faade_dialog.setAttribute('aria-labelledby', 'ui-dialog-title-faade');
-    var html_string = '<div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix" unselectable="on" style="-moz-user-select: none;">';
-    html_string += '<span class="ui-dialog-title" id="ui-dialog-title-faade" unselectable="on" style="-moz-user-select: none;">Predator Alert Tool for FetLife (PAT-FetLife)</span>';
-    html_string += '<a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button" unselectable="on" style="-moz-user-select: none;">';
-    html_string += '<span class="ui-icon ui-icon-closethick" unselectable="on" style="-moz-user-select: none;">close</span>';
-    html_string += '</a>';
-    html_string += '</div>';
-    html_string += '<div data-modal-title="Predator Alert Tool for FetLife (PAT-FetLife)" data-modal-height="280" data-modal-auto-open="false" class="modal ui-dialog-content ui-widget-content" id="faade">';
-    html_string += '<p class="mbm">There have been <span id="faade_reports_to_alert">X</span> new consent violations filed to the Predator Alert Tool for FetLife that may have been perpetrated near your location (<span id="faade_user_loc">X, X, X</span>).</p>';
+    FL_UI.Dialog.createLink('faade', '', document.body);
+    var html_string = '<p class="mbm">There have been <span id="faade_reports_to_alert">X</span> new consent violations filed to the Predator Alert Tool for FetLife that may have been perpetrated near your location (<span id="faade_user_loc">X, X, X</span>).</p>';
     html_string += '<p>Click "View new nearby PAT-FetLife reports" to view the profiles of the people who have been accused of consent violations near your area in new tabs.</p>';
     html_string += '<p id="faade-actions" class="ac">';
     html_string += '<a rel="nofollow" class="btnsqr close" data-closes-modal="faade" href="#">View new nearby PAT-FetLife reports</a>';
@@ -209,14 +225,11 @@ FAADE.injectDialog = function () {
     html_string += '<a data-closes-modal="faade" class="close tdn q" href="#">Cancel</a>';
     html_string += '</p>';
     html_string += '<p>(Don\'t worry, I\'m not looking for where you actually are. Your location was determined from your FetLife profile.)</p>';
-    html_string += '</div>';
-    faade_dialog.innerHTML = html_string;
-    document.body.appendChild(faade_dialog);
-
-    // Attach event listener to trigger element.
-    document.querySelector('[data-opens-modal="faade"]').addEventListener('click', function (e) {
-        document.querySelector('[data-opens-modal="faade"]').dialog("open");
-    });
+    FL_UI.Dialog.inject(
+        'faade',
+        'Predator Alert Tool for FetLife (PAT-FetLife)',
+        html_string
+    );
 };
 
 FAADE.getLocationFromProfileHtml = function (html) {
