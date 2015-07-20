@@ -6,7 +6,7 @@
  */
 // ==UserScript==
 // @name           Predator Alert Tool for FetLife (PAT-FetLife)
-// @version        0.3.2
+// @version        0.3.3
 // @namespace      com.maybemaimed.fetlife.faade
 // @updateURL      https://github.com/meitar/fetlife-faade/raw/master/fetlife-alleged-abusers.user.js
 // @description    Alerts you of people who have allegedly assaulted others as you browse FetLife. Empowers you to anonymously report a consent violation perpetrated by a FetLife user.
@@ -80,9 +80,9 @@ FL_ASL.getUserProfile = function (id) {
 FAADE = {};
 FAADE.CONFIG = {
     'debug': false, // switch to true to debug.
-    'gdocs_key': '0ArYmNHuRadHbdGNVT1kzSzFnOXhHRjh1RnczZVVmMXc',
+    'gdocs_key': '1yrQprLmi5yanOwn1tLEAnhAGjOA4mx0RpcTLhSMleeE',
     'gform_key': 'dGNVT1kzSzFnOXhHRjh1RnczZVVmMXc6MQ',
-    'gdocs_development_key': '0ArYmNHuRadHbdGxjMUhyR0FzLWJicHNXUFdxckFEQWc',
+    'gdocs_development_key': '1z53rFX1g0E8DzuyXfyDrK9N1E3D-YFGvyFktqnHpLII',
     'gform_development_key': 'dGxjMUhyR0FzLWJicHNXUFdxckFEQWc6MQ',
 };
 
@@ -198,13 +198,13 @@ FAADE.getValue = function (x, y) {
 
 FAADE.fetchAbuserDatabase = function () {
     var key = FAADE.getDatabaseConnectionString();
-    var url = 'https://docs.google.com/spreadsheet/pub?key=' + key + '&output=html';
+    var url = 'https://docs.google.com/spreadsheets/d/' + key + '/pub';
     FAADE.log('fetching abusers database from ' + url);
     GM_xmlhttpRequest({
         'method': 'GET',
         'url': url,
         'onload': function (response) {
-            if (!response.finalUrl.match(/^https:\/\/docs.google.com\/spreadsheet\/pub/)) {
+            if (!response.finalUrl.match(/^https:\/\/docs.google.com\/spreadsheets\/d/)) {
                 FAADE.log('Failed to fetch abuser database from ' + url);
                 return false;
             }
@@ -242,7 +242,7 @@ FAADE.broadcastNewProximalReports = function (doc) {
     // Recall timestamp of last record checked.
     var last_timestamp_checked = parseInt(FAADE.getValue('last_timestamp_checked', '0')); // default is "never!"
     // Get latest timestamp in stored alleged abuser database.
-    var rows = doc.querySelectorAll('#tblMain tr'); // read in every report, in full
+    var rows = doc.querySelectorAll('table.waffle tr'); // read in every report, in full
     var latest_timestamp_filed = Date.parse(rows[rows.length - 1].childNodes[1].textContent);
 
     // If never checked, or if there are new records since last timestamp checked
@@ -412,7 +412,7 @@ FAADE.main = function () {
     // Make a list of known alleged abuser user IDs.
     var parser = new DOMParser();
     var doc = parser.parseFromString(FAADE.abuser_database, 'text/html');
-    var els = doc.querySelectorAll('#tblMain td:nth-child(3)'); // third child is the column of IDs.
+    var els = doc.querySelectorAll('table.waffle td:nth-child(3)'); // third child is the column of IDs.
     var abuser_ids = [];
     for (var i = 1; i < els.length; i++) { // we never need the first (0'th) cell because Google provides it blank.
         abuser_ids.push(els[i].innerHTML);

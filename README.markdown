@@ -124,6 +124,8 @@ Each of the pages listed above also contain numerous additional links. Take the 
 
 ## Change log
 
+* Version 0.3.3:
+    * Switch to new Google Sheets back-end.
 * Version 0.3.2:
     * Enhancement: Only open new tabs for CreepShield.com when required by the specific error message.
 * Version 0.3.1:
