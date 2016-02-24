@@ -6,7 +6,7 @@
  */
 // ==UserScript==
 // @name           Predator Alert Tool for FetLife (PAT-FetLife)
-// @version        0.3.3
+// @version        0.3.4
 // @namespace      com.maybemaimed.fetlife.faade
 // @updateURL      https://github.com/meitar/fetlife-faade/raw/master/fetlife-alleged-abusers.user.js
 // @description    Alerts you of people who have allegedly assaulted others as you browse FetLife. Empowers you to anonymously report a consent violation perpetrated by a FetLife user.
@@ -80,8 +80,8 @@ FL_ASL.getUserProfile = function (id) {
 FAADE = {};
 FAADE.CONFIG = {
     'debug': false, // switch to true to debug.
-    'gdocs_key': '1yrQprLmi5yanOwn1tLEAnhAGjOA4mx0RpcTLhSMleeE',
-    'gform_key': 'dGNVT1kzSzFnOXhHRjh1RnczZVVmMXc6MQ',
+    'gdocs_key': '1xJDW-i4oqfCKN02KmOJi8uORiV-xRtw0erXWOw50mOo',
+    'gform_key': '1Zpmq4ZgrcUMAcDHgfT4ne_eAq71IKnONIbrQNfCP8gs',
     'gdocs_development_key': '1z53rFX1g0E8DzuyXfyDrK9N1E3D-YFGvyFktqnHpLII',
     'gform_development_key': 'dGxjMUhyR0FzLWJicHNXUFdxckFEQWc6MQ',
 };
@@ -541,9 +541,9 @@ FAADE.createAbuseReportLink = function (id, nick) {
     var a = document.createElement('a');
     a.setAttribute('class', 'faade_report_link');
     a.setAttribute('target', '_blank');
-    var href = 'https://docs.google.com/spreadsheet/viewform?formkey=' + FAADE.getReportFormKey();
-    href += '&entry_0=' + id;
-    href += '&entry_1=' + nick;
+    var href = 'https://docs.google.com/forms/d/' + FAADE.getReportFormKey() + '/viewform';
+    href += '&entry_2952262=' + id;
+    href += '&entry_1000001=' + nick;
     a.setAttribute('href', href);
     a.innerHTML = '(report a consent violation by ' + nick + ')';
     return a;

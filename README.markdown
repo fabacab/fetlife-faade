@@ -124,6 +124,11 @@ Each of the pages listed above also contain numerous additional links. Take the 
 
 ## Change log
 
+* Version 0.3.4:
+    * Switch to new Google Spreadsheet after Google censored previous sheet for "Terms of Service" violation.
+    * Google flagged the PAT-FetLife spreadsheet database as "inappropriate" and revoked its "sharing" permission, effectively censoring survivors of sadomasochistic rapes from communicating with one another. Such survivor-to-survivor communication is the explicit purpose of the Predator Alert Tool suite of browser plugins, which depend on Google's Spreadsheets service to share data between one another in a way that the social networks in question cannot censor (which they have done).  
+    * It is unfortunate that a company like Google considers rape survivors to be doing something "inappropriate" when they try to warn their peers that they have been sexually abused in an effort to prevent others from falling victim to predators.
+    * Please consider voicing your displeasure at Google's explicit pro-rape stance on this issue in whatever way you can. Google can be reached here: https://www.google.com/contact/
 * Version 0.3.3:
     * Switch to new Google Sheets back-end.
 * Version 0.3.2:
