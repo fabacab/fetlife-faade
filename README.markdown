@@ -57,7 +57,7 @@ Once you have filed your report, it will be displayed to other PAT-FetLife users
 
 ![Screenshot of FetLife profile with record of alleged consent violation.](http://i.imgur.com/XSAHN.png)
 
-Please be patient. It may take up to 24 hours for your report to be visible on FetLife pages to other PAT-FetLife users, but it will be immediately [available on the open Internet](https://docs.google.com/spreadsheet/pub?key=0ArYmNHuRadHbdGNVT1kzSzFnOXhHRjh1RnczZVVmMXc&output=html). As new reports are filed, PAT-FetLife will proactively alert you of them with a dialogue box (an example is shown in the screenshot below) if they allegedly occurred in or near the same geographic region as listed on your FetLife profile.
+Please be patient. It may take up to 24 hours for your report to be visible on FetLife pages to other PAT-FetLife users, but it will be immediately [available on the open Internet](https://docs.google.com/spreadsheets/d/1xJDW-i4oqfCKN02KmOJi8uORiV-xRtw0erXWOw50mOo/pubhtml). As new reports are filed, PAT-FetLife will proactively alert you of them with a dialogue box (an example is shown in the screenshot below) if they allegedly occurred in or near the same geographic region as listed on your FetLife profile.
 
 ![Screenshot of PAT-FetLife dialogue box broadcasting geographically proximal reports.](http://i.imgur.com/ITdh0.png)
 
@@ -65,16 +65,9 @@ For this feature to work most reliably, avoid using abbreviations when you compl
 
 The entire database of alleged abuses is also available for download to anyone, regardless of whether they use PAT-FetLife or not, in multiple formats:
 
-* [Download the database of alleged abuses by FetLife users in CSV format.](https://docs.google.com/spreadsheet/pub?key=0ArYmNHuRadHbdGNVT1kzSzFnOXhHRjh1RnczZVVmMXc&output=csv)
-* [Download the database of alleged abuses by FetLife users in plain text format.](https://docs.google.com/spreadsheet/pub?key=0ArYmNHuRadHbdGNVT1kzSzFnOXhHRjh1RnczZVVmMXc&output=txt)
-* [Download the database of alleged abuses by FetLife users as a PDF file.](https://docs.google.com/spreadsheet/pub?key=0ArYmNHuRadHbdGNVT1kzSzFnOXhHRjh1RnczZVVmMXcc&output=pdf)
-* [Download the database of alleged abuses by FetLife users as a Microsoft Excel spreadsheet.](https://docs.google.com/spreadsheet/pub?key=0ArYmNHuRadHbdGNVT1kzSzFnOXhHRjh1RnczZVVmMXc&output=xls)
-* [Download the database of alleged abuses by FetLife users as an OpenDocument spreadsheet.](https://docs.google.com/spreadsheet/pub?key=0ArYmNHuRadHbdGNVT1kzSzFnOXhHRjh1RnczZVVmMXc&output=ods)
-
-Additionally, you can also subscribe to receive updates of alleged abuses:
-
-* [Subscribe to the database of alleged abuses by FetLife users as an ATOM feed.](https://spreadsheets.google.com/feeds/list/0ArYmNHuRadHbdGNVT1kzSzFnOXhHRjh1RnczZVVmMXc/od6/public/basic)
-* [Subscribe to the database of alleged abuses by FetLife users as an RSS feed.](https://spreadsheets.google.com/feeds/list/0ArYmNHuRadHbdGNVT1kzSzFnOXhHRjh1RnczZVVmMXc/od6/public/basic?alt=rss)
+* [Download the database of alleged abuses by FetLife users in CSV format.](https://docs.google.com/spreadsheets/d/1xJDW-i4oqfCKN02KmOJi8uORiV-xRtw0erXWOw50mOo/export?format=csv&id=1xJDW-i4oqfCKN02KmOJi8uORiV-xRtw0erXWOw50mOo&gid=800431666)
+* [Download the database of alleged abuses by FetLife users as a Microsoft Excel spreadsheet.](https://docs.google.com/spreadsheets/d/1xJDW-i4oqfCKN02KmOJi8uORiV-xRtw0erXWOw50mOo/export?format=xlsx&id=1xJDW-i4oqfCKN02KmOJi8uORiV-xRtw0erXWOw50mOo)
+* [Download the database of alleged abuses by FetLife users as an OpenDocument spreadsheet.](https://docs.google.com/spreadsheets/d/1xJDW-i4oqfCKN02KmOJi8uORiV-xRtw0erXWOw50mOo/export?format=ods&id=1xJDW-i4oqfCKN02KmOJi8uORiV-xRtw0erXWOw50mOo)
 
 ## Frequently Asked Questions
 
@@ -94,7 +87,7 @@ Yes. PAT-FetLife will never require the use of your personally identifying infor
 
 Yes. Anyone can file a report, regardles of whether they, themselves, have a FetLife account. However, allegations can only be made *against* users of FetLife.
 
-If you don't have a FetLife account, you can still [access and submit the report form](https://docs.google.com/spreadsheet/viewform?formkey=dGNVT1kzSzFnOXhHRjh1RnczZVVmMXc6MQ). However, some fields, such as the person's numeric FetLife user ID and profile name, will not be be automatically filled in. Follow the instructions on the report form to help you complete any fields not already pre-filled.
+If you don't have a FetLife account, you can still [access and submit the report form](https://docs.google.com/forms/d/e/1FAIpQLSfjvmbsPf39PqbyRuEpqr5r-LR1lgl4qnXeEBmKITNkKqMWZA/viewform). However, some fields, such as the person's numeric FetLife user ID and profile name, will not be be automatically filled in. Follow the instructions on the report form to help you complete any fields not already pre-filled.
 
 ### Can I remove myself from the database?
 
